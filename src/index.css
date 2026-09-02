@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+@theme {
+    --color-olive: #7C8D73;
+    --color-warm: #BFAF9B;
+    --color-soft: #C98F73;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+p,
+span,
+li,
+a,
+button {
+    font-family: "Fredoka", sans-serif;
+    font-optical-sizing: auto;
+}
