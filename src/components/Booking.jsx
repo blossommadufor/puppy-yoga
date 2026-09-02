@@ -49,7 +49,7 @@ const Booking = () => {
   };
 
   return (
-    <div className="lg:py-20  py-16 px-7 lg:px-16 flex justify-center items-start">
+    <div id="booking" className="lg:py-20  py-16 px-7 lg:px-16 flex justify-center items-start">
       <div className="max-w-5xl w-full">
         {currentStep <= 3 && (
           <StepTracker
