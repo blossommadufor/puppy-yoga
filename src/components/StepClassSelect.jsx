@@ -20,7 +20,7 @@ const StepClassSelect = ({ selectedClass, setSelectedClass, onNext }) => {
           >
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <span className=" font-bold uppercase bg-[#E07A5F]/15 text-[#E07A5F] text-sm md:text-base px-2.5 py- rounded-full">
+                <span className=" font-bold uppercase bg-[#E07A5F]/15 text-[#E07A5F] text-xs md:text-base px-2.5 py- rounded-full">
                   {item.tag}
                 </span>
                 <span className=" text-gray-500">{item.duration} · {item.capacity}</span>
