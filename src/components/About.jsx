@@ -5,6 +5,8 @@ import overlayImg from "../assets/solo3.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendar, faClock, faDog, faMugHot, faPaw, faSpa } from "@fortawesome/free-solid-svg-icons";
 
+
+
 const About = () => {
   return (
     <div id="about" className="relative lg:py-20 py-16 overflow-hidden flex flex-col items-center justify-center bg-[#F4F0EA]">
@@ -121,7 +123,10 @@ const About = () => {
 
         </div>
 
+      
+
       </div>
+
 
       {/* Continuous CSS Keyframe Animations */}
       <style>{`

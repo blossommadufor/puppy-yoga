@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import React from "react";
+import Button from "./Button";
 import mainHeroImg from "../assets/solo1.jpeg"; 
 import topRightImg from "../assets/solo2.jpg"; 
 import bottomRightImg from "../assets/hero2.jpg"; 
@@ -42,9 +43,9 @@ const Hero = () => {
             puppies.
           </p>
 
-          <button className="mt-6 bg-soft hover:bg-warm py-2.5 px-6 rounded-lg text-white font-medium transition-colors">
+          <Button className="mt-6">
             Book a Session
-          </button>
+          </Button>
         </motion.div>
 
         <motion.div 
