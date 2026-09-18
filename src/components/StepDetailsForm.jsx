@@ -10,10 +10,17 @@ const StepDetailsForm = ({ formData, setFormData, onSubmit, totalAmount }) => {
 
   return (
     <div>
-      <h2 className="text-2xl text-[#2C2C2C] mb-1">Attendee Details</h2>
-      <p className="text-sm text-[#6B5E55] mb-6">Fill in your information to secure your mats.</p>
+      <h2 className="text-2xl font-bold text-[#2C2C2C] mb-1 text-center sm:text-left">
+        Attendee Details
+      </h2>
+      <p className="text-sm text-[#6B5E55] mb-6 text-center sm:text-left">
+        Fill in your information to secure your mats.
+      </p>
 
-      <form className="bg-white p-6 rounded-2xl border border-[#E8DFD5] space-y-4 shadow-sm" onSubmit={(e) => e.preventDefault()}>
+      <form
+        className="bg-white p-6 rounded-2xl border border-[#E8DFD5] space-y-4 shadow-sm"
+        onSubmit={(e) => e.preventDefault()}
+      >
         <InputField
           label="Full Name"
           name="fullName"
@@ -55,16 +62,17 @@ const StepDetailsForm = ({ formData, setFormData, onSubmit, totalAmount }) => {
             onChange={handleInputChange}
             rows={3}
             placeholder="Let us know if you have any dog allergies or yoga physical accommodations."
-            className="w-full p-3 rounded-xl border border-gray-200 text-sm focus:outline-none focus:border-[#E07A5F]"
+            className="w-full p-3 rounded-xl border border-gray-200 text-base sm:text-sm focus:outline-none focus:border-[#E07A5F]"
           />
         </div>
       </form>
 
-      <div className="mt-8 flex justify-end">
+      {/* Button Wrapper Centered */}
+      <div className="mt-8 flex justify-center items-center">
         <button
           disabled={!isDetailsValid}
           onClick={onSubmit}
-          className={`py-3 px-8 rounded-xl shadow-md transition-all font-medium ${
+          className={`w-full sm:w-auto py-3.5 px-8 rounded-xl shadow-md transition-all font-semibold text-center text-base ${
             isDetailsValid
               ? "bg-[#8A9A86] text-white hover:bg-[#778873] cursor-pointer"
               : "bg-gray-300 text-gray-500 cursor-not-allowed"

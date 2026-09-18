@@ -13,7 +13,7 @@ const BookingConfirmation = ({
   formData,
   totalAmount,
   onReset,
-  whatsappPhone = "2349018204862",
+  whatsappPhone = "2347071460809",
 }) => {
   const handleWhatsAppShare = () => {
     const receiptMessage = `*NEW BOOKING RECEIPT - PAWS & YOGA* 🐾
