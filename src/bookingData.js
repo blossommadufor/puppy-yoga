@@ -1,33 +1,75 @@
 export const classOptions = [{
         id: "puppy-yoga",
         title: "Puppy Yoga & Chill",
-        duration: "45 mins",
-        basePrice: 8500,
-        capacity: "Up to 12 people",
-        tag: "Most Popular",
-        desc: "Gentle restorative flow while playful puppies roam around your mat.",
+        duration: "60 mins",
+        basePrice: 35000,
+        capacity: "Maximum of 11 people",
+        tag: "puppies",
+        desc: "A relaxing, beginner-friendly yoga flow where curious, playful puppies freely wander the room, snuggle on your mat, and bring pure joy to your practice.",
+        benefits: [
+            "60-minute guided yoga session",
+            "Puppy play time",
+            "A paw polariod picture",
+            "A yoga mat",
+            "Iced coffee or Iced matcha"
+        ]
     },
     {
         id: "yoga-matcha",
-        title: "Puppy Yoga + Matcha Ritual",
+        title: "Kitten Yoga & Chill",
         duration: "60 mins",
-        basePrice: 11000,
-        capacity: "Up to 10 people",
-        tag: "Best Value",
-        desc: "Full session followed by a post-yoga ceremonial grade matcha drink.",
+        basePrice: 35000,
+        capacity: "Maximum of 11 people",
+        tag: "Kittens",
+        desc: "Find your flow surrounded by sweet, playful kittens pouncing on mats and curling up for cuddles,",
+        benefits: [
+            "60-minute guided yoga session",
+            "Kitten play time",
+            "A paw polariod picture",
+            "A yoga mat",
+            "Iced coffee or Iced matcha"
+        ]
     },
 ];
+export const getDynamicBookingData = () => {
+    const availableDates = [];
+    const timeSlotsByDate = {};
+    const today = new Date();
 
-export const availableDates = [
-    { label: "Sat, Aug 3", dateVal: "2026-08-03" },
-    { label: "Sun, Aug 4", dateVal: "2026-08-04" },
-    { label: "Sat, Aug 10", dateVal: "2026-08-10" },
-    { label: "Sun, Aug 11", dateVal: "2026-08-11" },
-];
+    // Loop through the next 7 days
+    for (let i = 0; i < 7; i++) {
+        const current = new Date();
+        current.setDate(today.getDate() + i);
 
-export const timeSlotsByDate = {
-    "2026-08-03": ["09:00 AM", "11:00 AM", "02:00 PM", "04:30 PM"],
-    "2026-08-04": ["10:00 AM", "01:00 PM", "03:30 PM"],
-    "2026-08-10": ["09:00 AM", "11:30 AM", "02:00 PM"],
-    "2026-08-11": ["11:00 AM", "01:30 PM", "04:00 PM"],
+        const dayOfWeek = current.getDay(); // 0 = Sun, 5 = Fri, 6 = Sat
+
+        if (dayOfWeek === 5 || dayOfWeek === 6) {
+            // Safely format local YYYY-MM-DD without UTC timezone shifts
+            const year = current.getFullYear();
+            const month = String(current.getMonth() + 1).padStart(2, "0");
+            const day = String(current.getDate()).padStart(2, "0");
+            const dateVal = `${year}-${month}-${day}`;
+
+            // Format clean label (e.g., "Fri, Aug 1" or "Sat, Oct 10")
+            const label = current.toLocaleDateString("en-US", {
+                weekday: "short",
+                month: "short",
+                day: "numeric",
+            });
+
+            availableDates.push({ label, dateVal });
+
+            // Assign time slots
+            if (dayOfWeek === 5) {
+                timeSlotsByDate[dateVal] = ["10:00 AM - 11:00 AM", "12:00 PM - 01:00 PM"];
+            } else if (dayOfWeek === 6) {
+                timeSlotsByDate[dateVal] = ["11:00 AM - 12:00 PM", "12:00 PM - 01:00 PM"];
+            }
+        }
+    }
+
+    return { availableDates, timeSlotsByDate };
 };
+
+// Export current week's slots automatically
+export const { availableDates, timeSlotsByDate } = getDynamicBookingData();

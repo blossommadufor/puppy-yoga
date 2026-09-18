@@ -14,7 +14,10 @@ const Booking = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
   const [spots, setSpots] = useState(1);
-  const [addMatcha, setAddMatcha] = useState(false);
+
+  // Updated state for beverage choice & optional grip socks add-on
+  const [selectedDrink, setSelectedDrink] = useState("Iced Matcha");
+  const [addGripSocks, setAddGripSocks] = useState(false);
 
   const [formData, setFormData] = useState({
     fullName: "",
@@ -33,7 +36,7 @@ const Booking = () => {
   const calculateTotal = () => {
     if (!selectedClass) return 0;
     let total = selectedClass.basePrice * spots;
-    if (addMatcha) total += 2500 * spots;
+    if (addGripSocks) total += 5000 * spots; // ₦5,000 per pair per spot
     return total;
   };
 
@@ -44,12 +47,13 @@ const Booking = () => {
     setSelectedDate(null);
     setSelectedTime(null);
     setSpots(1);
-    setAddMatcha(false);
+    setSelectedDrink("Iced Matcha");
+    setAddGripSocks(false);
     setFormData({ fullName: "", email: "", phone: "", notes: "" });
   };
 
   return (
-    <div id="booking" className="lg:py-20  py-16 px-7 lg:px-16 flex justify-center items-start">
+    <div id="booking" className="lg:py-20 py-16 px-7 lg:px-16 flex justify-center items-start">
       <div className="max-w-5xl w-full">
         {currentStep <= 3 && (
           <StepTracker
@@ -65,6 +69,8 @@ const Booking = () => {
             selectedDate={selectedDate}
             selectedTime={selectedTime}
             spots={spots}
+            selectedDrink={selectedDrink}
+            addGripSocks={addGripSocks}
             formData={formData}
             totalAmount={calculateTotal()}
             onReset={handleReset}
@@ -88,8 +94,10 @@ const Booking = () => {
                   setSelectedTime={setSelectedTime}
                   spots={spots}
                   setSpots={setSpots}
-                  addMatcha={addMatcha}
-                  setAddMatcha={setAddMatcha}
+                  selectedDrink={selectedDrink}
+                  setSelectedDrink={setSelectedDrink}
+                  addGripSocks={addGripSocks}
+                  setAddGripSocks={setAddGripSocks}
                   onBack={() => setCurrentStep(1)}
                   onNext={() => goToStep(3)}
                 />
@@ -112,7 +120,8 @@ const Booking = () => {
                 selectedDate={selectedDate}
                 selectedTime={selectedTime}
                 spots={spots}
-                addMatcha={addMatcha}
+                selectedDrink={selectedDrink}
+                addGripSocks={addGripSocks}
                 totalAmount={calculateTotal()}
               />
             </div>

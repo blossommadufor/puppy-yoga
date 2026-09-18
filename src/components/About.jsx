@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import mainImg from "../assets/cheers.jpeg";
 import overlayImg from "../assets/solo3.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendar, faClock, faDog, faMugHot, faPaw, faSpa } from "@fortawesome/free-solid-svg-icons";
+import { faCalendar, faClock, faMugHot, faPaw, faSpa } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -24,7 +24,7 @@ const About = () => {
       >
         <p className="bg-[#FAF6F0] text-[#2C2C2C] py-2.5 px-6 rounded-full text-xs font-extrabold tracking-widest shadow-md border border-[#E8DFD5] inline-flex items-center gap-2.5 uppercase">
           <FontAwesomeIcon icon={faPaw} className="text-[#8A9A86] text-sm" />
-          PAWS & MATCHA EXPERIENCE
+          PAWS & YOGA EXPERIENCE
         </p>
       </motion.div>
 
@@ -64,7 +64,7 @@ const About = () => {
             className="bg-[#FAF6F0]/90 backdrop-blur-md rounded-3xl p-8 shadow-xl shadow-[#C5A880]/10 border border-[#E8DFD5] border-l-8 border-l-[#8A9A86] hover:-translate-y-1.5 hover:bg-white hover:shadow-2xl hover:shadow-[#E07A5F]/15 transition-all duration-300"
           >
             <h2 className="text-4xl font-extrabold text-[#2C2C2C] mb-3 tracking-tight">
-              Yoga + <span className="italic font-serif text-[#7C8D73]">Puppies</span>
+              Yoga + <span className="italic font-serif text-[#7C8D73]">Puppies +</span><span className="italic font-serif text-soft"> Kittens </span>
             </h2>
             <p className="text-[#6B5E55] text-base leading-relaxed italic">
               Our mantra is pure: Joyful movement, gentle stretching, and post-session sips in a tranquil studio space.
@@ -83,9 +83,9 @@ const About = () => {
               
               <span className="flex flex-col items-center gap-2 group/icon cursor-pointer">
                 <div className="h-14 w-14 rounded-full bg-[#8A9A86] flex justify-center items-center shadow-lg shadow-[#8A9A86]/30 group-hover/icon:-translate-y-1.5 group-hover/icon:scale-110 transition-all duration-300 ring-4 ring-[#8A9A86]/20">
-                  <FontAwesomeIcon icon={faDog} className="text-2xl text-white"/>
+                  <FontAwesomeIcon icon={faPaw} className="text-2xl text-white"/>
                 </div>
-                <p className="text-sm font-bold text-[#5C4D44] tracking-wide mt-2">Puppy Love</p>
+                <p className="text-sm font-bold text-[#5C4D44] tracking-wide mt-2">Paw Love</p>
               </span>
 
               <span className="flex flex-col items-center gap-2 group/icon cursor-pointer">
@@ -105,13 +105,13 @@ const About = () => {
             </div>
 
             <h3 className="text-xl font-extrabold text-[#2C2C2C] mb-4">
-              Puppy Yoga + Matcha Session
+              Paw Yoga + Matcha Session
             </h3>
 
             <div className="flex flex-wrap justify-center gap-3">
               <p className="bg-[#F3ECE0] py-2 px-4 rounded-full text-xs text-[#4A3E3D] flex items-center gap-2 border border-[#E5D7C5] shadow-sm hover:bg-[#E07A5F] hover:text-white transition-all duration-300">
                 <FontAwesomeIcon icon={faCalendar} className="text-[#E07A5F] text-sm"/>
-                Booking: 12:00 PM
+                Bookings
               </p>
               <p className="bg-[#F3ECE0] py-2 px-4 rounded-full text-xs text-[#4A3E3D] flex items-center gap-2 border border-[#E5D7C5] shadow-sm hover:bg-[#8A9A86] hover:text-white transition-all duration-300">
                 <FontAwesomeIcon icon={faClock} className="text-[#8A9A86] text-sm"/>

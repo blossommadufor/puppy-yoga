@@ -40,7 +40,7 @@ const Hero = () => {
           <p className="mt-4 sm:mt-6 md:text-xl text-gray-800 max-w-xl">
             Step out of daily noise and into a tranquil studio space where gentle
             restorative yoga blends seamlessly with warm, unconditional joy of
-            puppies.
+            puppies and kittens.
           </p>
 
           <Button className="mt-6">
