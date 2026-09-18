@@ -11,7 +11,7 @@ export const classOptions = [{
             "Puppy play time",
             "A paw polariod picture",
             "A yoga mat",
-            "Iced coffee or Iced matcha"
+            "A cup of coffee or matcha"
         ]
     },
     {
@@ -27,7 +27,7 @@ export const classOptions = [{
             "Kitten play time",
             "A paw polariod picture",
             "A yoga mat",
-            "Iced coffee or Iced matcha"
+            "A cup of coffee or matcha"
         ]
     },
 ];

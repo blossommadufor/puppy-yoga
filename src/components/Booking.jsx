@@ -15,8 +15,8 @@ const Booking = () => {
   const [selectedTime, setSelectedTime] = useState(null);
   const [spots, setSpots] = useState(1);
 
-  // Updated state for beverage choice & optional grip socks add-on
-  const [selectedDrink, setSelectedDrink] = useState("Iced Matcha");
+  // Set initial drink state to empty so none is pre-selected
+  const [selectedDrink, setSelectedDrink] = useState("");
   const [addGripSocks, setAddGripSocks] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -47,7 +47,7 @@ const Booking = () => {
     setSelectedDate(null);
     setSelectedTime(null);
     setSpots(1);
-    setSelectedDrink("Iced Matcha");
+    setSelectedDrink("");
     setAddGripSocks(false);
     setFormData({ fullName: "", email: "", phone: "", notes: "" });
   };

@@ -8,9 +8,9 @@ const StepSchedule = ({
   setSelectedTime,
   spots,
   setSpots,
-  selectedDrink, // Selected drink string e.g. "Iced Matcha" or "Iced Coffee"
+  selectedDrink,
   setSelectedDrink,
-  addGripSocks, // Boolean
+  addGripSocks,
   setAddGripSocks,
   onBack,
   onNext,
@@ -119,17 +119,17 @@ const StepSchedule = ({
             <div className="grid grid-cols-2 gap-3 pt-1">
               <label
                 className={`flex items-center justify-between p-3 rounded-xl border cursor-pointer transition-all ${
-                  selectedDrink === "Iced Matcha"
+                  selectedDrink === "A cup of Matcha"
                     ? "border-[#8A9A86] bg-[#8A9A86]/10 font-medium"
                     : "border-gray-200 hover:border-gray-300"
                 }`}
               >
-                <span className="text-sm text-[#2C2C2C]">Iced Matcha</span>
+                <span className="text-sm text-[#2C2C2C]">A cup of Matcha</span>
                 <input
                   type="radio"
                   name="drinkChoice"
-                  value="Iced Matcha"
-                  checked={selectedDrink === "Iced Matcha"}
+                  value="A cup of Matcha"
+                  checked={selectedDrink === "A cup of Matcha"}
                   onChange={(e) => setSelectedDrink(e.target.value)}
                   className="accent-[#8A9A86] w-4 h-4"
                 />
@@ -137,17 +137,17 @@ const StepSchedule = ({
 
               <label
                 className={`flex items-center justify-between p-3 rounded-xl border cursor-pointer transition-all ${
-                  selectedDrink === "Iced Coffee"
+                  selectedDrink === "A cup of Coffee"
                     ? "border-[#8A9A86] bg-[#8A9A86]/10 font-medium"
                     : "border-gray-200 hover:border-gray-300"
                 }`}
               >
-                <span className="text-sm text-[#2C2C2C]">Iced Coffee</span>
+                <span className="text-sm text-[#2C2C2C]">A cup of Coffee</span>
                 <input
                   type="radio"
                   name="drinkChoice"
-                  value="Iced Coffee"
-                  checked={selectedDrink === "Iced Coffee"}
+                  value="A cup of Coffee"
+                  checked={selectedDrink === "A cup of Coffee"}
                   onChange={(e) => setSelectedDrink(e.target.value)}
                   className="accent-[#8A9A86] w-4 h-4"
                 />

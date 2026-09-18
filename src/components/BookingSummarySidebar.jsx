@@ -1,6 +1,11 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCalendarAlt, faShieldAlt, faGlassWater } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCalendarAlt,
+  faShieldAlt,
+  faGlassWater,
+  faLocationDot,
+} from "@fortawesome/free-solid-svg-icons";
 import { availableDates } from "../bookingData";
 
 const BookingSummarySidebar = ({
@@ -11,16 +16,20 @@ const BookingSummarySidebar = ({
   selectedDrink,
   addGripSocks,
 }) => {
-  // Calculate pricing breakdown
   const basePriceTotal = selectedClass ? selectedClass.basePrice * spots : 0;
   const gripSocksTotal = addGripSocks ? 5000 * spots : 0;
   const totalAmount = basePriceTotal + gripSocksTotal;
+
+  // Format drink name: replace "Iced" with "A cup of" or format selected drink string
+  const formattedDrink = selectedDrink
+    ? selectedDrink.replace(/^Iced\s+/i, "A cup of ")
+    : null;
 
   return (
     <div className="bg-white rounded-3xl p-6 border border-[#E8DFD5] shadow-lg sticky top-8">
       <h3 className="text-lg  text-[#2C2C2C] mb-4 pb-3 border-b border-gray-100 flex items-center justify-between">
         <span>Booking Summary</span>
-        <span className="text-xs font-semibold bg-[#FAF6F0] px-2.5 py-1 rounded-full text-[#E07A5F]">
+        <span className="text-xs  bg-[#FAF6F0] px-2.5 py-1 rounded-full text-[#E07A5F]">
           Live
         </span>
       </h3>
@@ -47,7 +56,7 @@ const BookingSummarySidebar = ({
               <span className="text-gray-400 block uppercase  text-[10px] tracking-wider">
                 Date & Time
               </span>
-              <p className="font-semibold text-[#2C2C2C] text-sm mt-1">
+              <p className=" text-[#2C2C2C] text-sm mt-1">
                 {availableDates.find((d) => d.dateVal === selectedDate)?.label || selectedDate}
               </p>
               <p className="text-xs text-[#E07A5F] ">{selectedTime}</p>
@@ -58,15 +67,15 @@ const BookingSummarySidebar = ({
             </div>
           )}
 
-          {/* Complimentary Drink Choice */}
-          {selectedDrink && (
+          {/* Complimentary Drink (Only renders after user selection) */}
+          {formattedDrink && (
             <div className="pt-3 border-t border-gray-100">
               <span className="text-gray-400 block uppercase  text-[10px] tracking-wider">
                 Included Beverage
               </span>
-              <p className="text-xs font-semibold text-[#8A9A86] mt-1 flex items-center gap-1.5">
+              <p className="text-xs  text-[#8A9A86] mt-1 flex items-center gap-1.5">
                 <FontAwesomeIcon icon={faGlassWater} />
-                {selectedDrink} (Complimentary)
+                {formattedDrink} (Complimentary)
               </p>
             </div>
           )}
@@ -82,7 +91,6 @@ const BookingSummarySidebar = ({
               </span>
             </div>
 
-            {/* Optional Grip Socks Add-on */}
             {addGripSocks && (
               <div className="flex justify-between text-gray-600">
                 <span>Grip Socks ({spots} {spots > 1 ? "pairs" : "pair"}):</span>
