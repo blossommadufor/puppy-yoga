@@ -13,7 +13,7 @@ const BookingConfirmation = ({
   formData,
   totalAmount,
   onReset,
-  whatsappBaseUrl = "https://wa.me/message/XVUM4TSF7MFXD1",
+  whatsappPhone = "2349018204862",
 }) => {
   const handleWhatsAppShare = () => {
     const receiptMessage = `*NEW BOOKING RECEIPT - PAWS & YOGA* 🐾
@@ -35,7 +35,7 @@ const BookingConfirmation = ({
 Hi! I'd like to complete my payment for this booking.`;
 
     const encodedMessage = encodeURIComponent(receiptMessage);
-    const fullWhatsappUrl = `${whatsappBaseUrl}?text=${encodedMessage}`;
+    const fullWhatsappUrl = `https://wa.me/${whatsappPhone}?text=${encodedMessage}`;
 
     window.open(fullWhatsappUrl, "_blank");
   };
@@ -46,7 +46,7 @@ Hi! I'd like to complete my payment for this booking.`;
         <FontAwesomeIcon icon={faCheckCircle} className="text-3xl" />
       </div>
 
-      <h2 className="text-2xl  text-[#2C2C2C] mb-2">Booking Requested!</h2>
+      <h2 className="text-2xl font-bold text-[#2C2C2C] mb-2">Booking Requested!</h2>
       <p className="text-[#6B5E55] text-sm mb-6">
         Please share your booking receipt via WhatsApp to finalize payment and reserve your spot.
       </p>
@@ -55,25 +55,25 @@ Hi! I'd like to complete my payment for this booking.`;
       <div className="bg-[#FAF6F0] p-5 rounded-2xl text-left space-y-3 mb-6 border border-[#E8DFD5] text-xs sm:text-sm">
         <div className="flex justify-between pb-2 border-b border-gray-200">
           <span className="text-gray-500">Name:</span>
-          <span className=" text-[#2C2C2C]">{formData.fullName}</span>
+          <span className="font-semibold text-[#2C2C2C]">{formData.fullName}</span>
         </div>
         <div className="flex justify-between pb-2 border-b border-gray-200">
           <span className="text-gray-500">Session:</span>
-          <span className=" text-[#2C2C2C]">{selectedClass?.title}</span>
+          <span className="font-semibold text-[#2C2C2C]">{selectedClass?.title}</span>
         </div>
         <div className="flex justify-between pb-2 border-b border-gray-200">
           <span className="text-gray-500">Date & Time:</span>
-          <span className=" text-[#2C2C2C]">
+          <span className="font-semibold text-[#2C2C2C]">
             {selectedDate} @ {selectedTime}
           </span>
         </div>
         {selectedDrink && (
           <div className="flex justify-between pb-2 border-b border-gray-200">
             <span className="text-gray-500">Beverage:</span>
-            <span className=" text-[#8A9A86]">{selectedDrink}</span>
+            <span className="font-semibold text-[#8A9A86]">{selectedDrink}</span>
           </div>
         )}
-        <div className="flex justify-between items-center pt-1  text-[#2C2C2C] text-base">
+        <div className="flex justify-between items-center pt-1 font-bold text-[#2C2C2C] text-base">
           <span>Total Due:</span>
           <span className="text-[#E07A5F] text-lg">
             ₦{totalAmount.toLocaleString()}
@@ -85,7 +85,7 @@ Hi! I'd like to complete my payment for this booking.`;
       <button
         type="button"
         onClick={handleWhatsAppShare}
-        className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-white py-3.5 px-6 rounded-xl  text-sm shadow-md transition-all flex items-center justify-center gap-2 mb-3 cursor-pointer"
+        className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-white py-3.5 px-6 rounded-xl font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 mb-3 cursor-pointer"
       >
         <FontAwesomeIcon icon={faWhatsapp} className="text-xl" />
         Send Receipt & Pay on WhatsApp
