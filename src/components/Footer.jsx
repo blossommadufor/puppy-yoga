@@ -9,7 +9,7 @@ const Footer = ({
   instagramHandle = "@pawsandyogaabj",
   tiktokUrl = "https://www.tiktok.com/@pawsandyoga0",
   tiktokHandle = "@pawsandyoga0",
-  whatsappUrl = "https://wa.me/2340000000000",
+  whatsappUrl = "https://wa.me/message/XVUM4TSF7MFXD1",
   whatsappHandle = "Chat with us",
 }) => {
   return (

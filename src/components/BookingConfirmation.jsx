@@ -1,86 +1,102 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle, faLocationDot } from "@fortawesome/free-solid-svg-icons";
-import { availableDates } from "../bookingData";
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 const BookingConfirmation = ({
   selectedClass,
   selectedDate,
   selectedTime,
-  spots = 1,
+  spots,
   selectedDrink,
   addGripSocks,
   formData,
   totalAmount,
   onReset,
+  whatsappBaseUrl = "https://wa.me/message/XVUM4TSF7MFXD1",
 }) => {
-  return (
-    <div className="bg-white rounded-3xl p-8 sm:p-12 shadow-xl text-center max-w-xl mx-auto border border-[#E8DFD5]">
-      <FontAwesomeIcon icon={faCheckCircle} className="text-6xl text-[#8A9A86] mb-4" />
-      <h2 className="md:text-3xl lg:text-4xl font-extrabold text-[#2C2C2C] mb-5 md:mb-10">Booking Confirmed!</h2>
+  const handleWhatsAppShare = () => {
+    const receiptMessage = `*NEW BOOKING RECEIPT - PAWS & YOGA* 🐾
+----------------------------------
+*Customer:* ${formData.fullName}
+*Phone:* ${formData.phone}
+*Email:* ${formData.email}
 
-      {/* Studio Location Card */}
-      <div className="bg-[#8A9A86]/10 p-4 rounded-2xl mb-6 border border-[#8A9A86]/20 flex items-center justify-between text-left">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-[#8A9A86] flex items-center justify-center text-white shrink-0">
-            <FontAwesomeIcon icon={faLocationDot} className="text-lg" />
-          </div>
-          <div>
-            <span className="text-gray-400 block uppercase  text-[10px] tracking-wider">
-              Studio Location
-            </span>
-            <p className=" text-[#2C2C2C] text-sm">Paws & Yoga Studio</p>
-            <p className="text-xs text-gray-600">57 Ebitu Ukiwe street , jabi, abuja</p>
-          </div>
-        </div>
+*BOOKING DETAILS:*
+• *Session:* ${selectedClass?.title || "N/A"}
+• *Date:* ${selectedDate}
+• *Time:* ${selectedTime}
+• *Spots:* ${spots}
+• *Beverage:* ${selectedDrink || "None"}
+• *Grip Socks:* ${addGripSocks ? "Yes" : "No"}
+
+*TOTAL AMOUNT:* ₦${totalAmount.toLocaleString()}
+----------------------------------
+Hi! I'd like to complete my payment for this booking.`;
+
+    const encodedMessage = encodeURIComponent(receiptMessage);
+    const fullWhatsappUrl = `${whatsappBaseUrl}?text=${encodedMessage}`;
+
+    window.open(fullWhatsappUrl, "_blank");
+  };
+
+  return (
+    <div className="max-w-xl mx-auto bg-white p-8 rounded-3xl border border-[#E8DFD5] shadow-lg text-center">
+      <div className="w-16 h-16 bg-[#8A9A86]/10 text-[#8A9A86] rounded-full flex items-center justify-center mx-auto mb-4">
+        <FontAwesomeIcon icon={faCheckCircle} className="text-3xl" />
       </div>
 
-      {/* Summary Details */}
-      <div className="bg-[#FAF6F0] p-6 rounded-2xl text-left text-sm space-y-3 mb-8 border border-[#E8DFD5]">
-        <div className="flex justify-between">
+      <h2 className="text-2xl  text-[#2C2C2C] mb-2">Booking Requested!</h2>
+      <p className="text-[#6B5E55] text-sm mb-6">
+        Please share your booking receipt via WhatsApp to finalize payment and reserve your spot.
+      </p>
+
+      {/* Receipt Details Box */}
+      <div className="bg-[#FAF6F0] p-5 rounded-2xl text-left space-y-3 mb-6 border border-[#E8DFD5] text-xs sm:text-sm">
+        <div className="flex justify-between pb-2 border-b border-gray-200">
+          <span className="text-gray-500">Name:</span>
+          <span className=" text-[#2C2C2C]">{formData.fullName}</span>
+        </div>
+        <div className="flex justify-between pb-2 border-b border-gray-200">
           <span className="text-gray-500">Session:</span>
           <span className=" text-[#2C2C2C]">{selectedClass?.title}</span>
         </div>
-
-        <div className="flex justify-between">
+        <div className="flex justify-between pb-2 border-b border-gray-200">
           <span className="text-gray-500">Date & Time:</span>
           <span className=" text-[#2C2C2C]">
-            {availableDates.find((d) => d.dateVal === selectedDate)?.label || selectedDate} @ {selectedTime}
+            {selectedDate} @ {selectedTime}
           </span>
         </div>
-
-        <div className="flex justify-between">
-          <span className="text-gray-500">Attendee:</span>
-          <span className=" text-[#2C2C2C]">
-            {formData.fullName} ({spots} {spots > 1 ? "spots" : "spot"})
-          </span>
-        </div>
-
         {selectedDrink && (
-          <div className="flex justify-between border-t pt-3 border-[#E8DFD5]">
-            <span className="text-gray-500">Included Beverage:</span>
+          <div className="flex justify-between pb-2 border-b border-gray-200">
+            <span className="text-gray-500">Beverage:</span>
             <span className=" text-[#8A9A86]">{selectedDrink}</span>
           </div>
         )}
-
-        {addGripSocks && (
-          <div className="flex justify-between">
-            <span className="text-gray-500">Grip Socks ({spots} {spots > 1 ? "pairs" : "pair"}):</span>
-            <span className=" text-[#2C2C2C]">₦{(5000 * spots).toLocaleString()}</span>
-          </div>
-        )}
-
-        <div className="flex justify-between border-t pt-3 border-[#E8DFD5] text-base ">
-          <span className="text-[#2C2C2C]">Total Paid:</span>
-          <span className="text-[#E07A5F]">₦{totalAmount.toLocaleString()}</span>
+        <div className="flex justify-between items-center pt-1  text-[#2C2C2C] text-base">
+          <span>Total Due:</span>
+          <span className="text-[#E07A5F] text-lg">
+            ₦{totalAmount.toLocaleString()}
+          </span>
         </div>
       </div>
 
+      {/* WhatsApp Payment CTA Button */}
       <button
-        onClick={onReset}
-        className="bg-[#8A9A86] hover:bg-[#788874] text-white  py-3 px-8 rounded-xl transition-all cursor-pointer shadow-md"
+        type="button"
+        onClick={handleWhatsAppShare}
+        className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-white py-3.5 px-6 rounded-xl  text-sm shadow-md transition-all flex items-center justify-center gap-2 mb-3 cursor-pointer"
       >
-        Book Another Class
+        <FontAwesomeIcon icon={faWhatsapp} className="text-xl" />
+        Send Receipt & Pay on WhatsApp
+      </button>
+
+      <button
+        type="button"
+        onClick={onReset}
+        className="text-xs text-gray-400 hover:text-gray-600 underline transition-colors cursor-pointer"
+      >
+        Book another session
       </button>
     </div>
   );
