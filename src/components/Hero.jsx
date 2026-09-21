@@ -35,7 +35,7 @@ const Hero = () => {
           </motion.span>
           <h2 className="mt-4 sm:mt-6 text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-800 leading-tight">
             Paws and Yoga <br />
-            <h2 className="text-soft italic">Playfulness + Balance</h2>
+            <h2 className="text-soft italic">Wellness + Balance</h2>
           </h2>
           <p className="mt-4 sm:mt-6 md:text-xl text-gray-800 max-w-xl">
             Step out of daily noise and into a tranquil studio space where gentle
@@ -43,9 +43,11 @@ const Hero = () => {
             puppies and kittens.
           </p>
 
-          <Button className="mt-6">
+          <a href="#booking">
+            <Button className="mt-6">
             Book a Session
           </Button>
+          </a>
         </motion.div>
 
         <motion.div 

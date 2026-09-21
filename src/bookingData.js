@@ -1,6 +1,6 @@
 export const classOptions = [{
         id: "puppy-yoga",
-        title: "Puppy Yoga & Chill",
+        title: "Puppy Yoga",
         duration: "60 mins",
         basePrice: 35000,
         capacity: "Maximum of 11 people",
@@ -16,7 +16,7 @@ export const classOptions = [{
     },
     {
         id: "yoga-matcha",
-        title: "Kitten Yoga & Chill",
+        title: "Kitten Yoga",
         duration: "60 mins",
         basePrice: 35000,
         capacity: "Maximum of 11 people",

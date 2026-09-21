@@ -29,6 +29,15 @@ const Navbar = () => {
           <ul className="flex flex-col items-center gap-6 py-8 text-white font-bold text-base tracking-wider uppercase">
             <li>
               <a
+                href="/"
+                onClick={() => setIsOpen(false)}
+                className="hover:text-[#BFAF9B] transition-colors"
+              >
+                HOME
+              </a>
+            </li>
+            <li>
+              <a
                 href="#about"
                 onClick={() => setIsOpen(false)}
                 className="hover:text-[#BFAF9B] transition-colors"
@@ -56,7 +65,7 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="#gallery"
+                href="/gallery"
                 onClick={() => setIsOpen(false)}
                 className="hover:text-[#BFAF9B] transition-colors"
               >
