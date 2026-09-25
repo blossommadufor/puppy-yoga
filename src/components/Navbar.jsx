@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -10,9 +11,9 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-[#7C8D73] py-3 px-6 sm:px-12 lg:px-24 flex justify-between items-center border-b border-[#FAF6F0]/10">
-      <a href="/">
+      <Link to="/" onClick={() => setIsOpen(false)}>
         <img src={logo} className="w-28 sm:w-32" alt="Logo" />
-      </a>
+      </Link>
 
       {/* Hamburger Toggle Button (Visible on all screen sizes) */}
       <button
@@ -28,49 +29,49 @@ const Navbar = () => {
         <div className="absolute top-full left-0 w-full bg-[#7C8D73] border-t border-[#FAF6F0]/10 shadow-xl">
           <ul className="flex flex-col items-center gap-6 py-8 text-white font-bold text-base tracking-wider uppercase">
             <li>
-              <a
-                href="/"
+              <Link
+                to="/"
                 onClick={() => setIsOpen(false)}
                 className="hover:text-[#BFAF9B] transition-colors"
               >
                 HOME
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/#about"
+              <Link
+                to="/#about"
                 onClick={() => setIsOpen(false)}
                 className="hover:text-[#BFAF9B] transition-colors"
               >
                 ABOUT US
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/#booking"
+              <Link
+                to="/#booking"
                 onClick={() => setIsOpen(false)}
                 className="hover:text-[#BFAF9B] transition-colors"
               >
                 BOOKING
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/#faq"
+              <Link
+                to="/#faq"
                 onClick={() => setIsOpen(false)}
                 className="hover:text-[#BFAF9B] transition-colors"
               >
                 FAQ
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/gallery"
+              <Link
+                to="/gallery"
                 onClick={() => setIsOpen(false)}
                 className="hover:text-[#BFAF9B] transition-colors"
               >
                 Gallery
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

@@ -11,6 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../components/Footer";
 import Button from "../components/Button";
+import { Link } from "react-router-dom";
 
 // All 15 studio gallery images
 import gallery2 from "../assets/gallery2.jpg";
@@ -203,14 +204,14 @@ const GalleryPage = () => {
                 Reserve your spot for an upcoming restorative session. Mats, cuddles, and refreshing
                 beverages are all prepared for you.
               </p>
-              <a href="/#booking">
+              <Link to="/#booking">
                 <Button
                   variant="soft"
                   className="shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
                 >
                   Book a Session
                 </Button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
