@@ -10,7 +10,7 @@ const Navbar = () => {
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-[#7C8D73] py-3 px-6 sm:px-12 lg:px-24 flex justify-between items-center border-b border-[#FAF6F0]/10">
-      <a href="#">
+      <a href="/">
         <img src={logo} className="w-28 sm:w-32" alt="Logo" />
       </a>
 
@@ -38,7 +38,7 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="#about"
+                href="/#about"
                 onClick={() => setIsOpen(false)}
                 className="hover:text-[#BFAF9B] transition-colors"
               >
@@ -47,7 +47,7 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="#booking"
+                href="/#booking"
                 onClick={() => setIsOpen(false)}
                 className="hover:text-[#BFAF9B] transition-colors"
               >
@@ -56,7 +56,7 @@ const Navbar = () => {
             </li>
             <li>
               <a
-                href="#faq"
+                href="/#faq"
                 onClick={() => setIsOpen(false)}
                 className="hover:text-[#BFAF9B] transition-colors"
               >
