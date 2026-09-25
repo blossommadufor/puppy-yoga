@@ -130,7 +130,7 @@ const GalleryPage = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-[#6B5E55] text-sm sm:text-base md:text-lg max-w-2xl mx-auto font-normal leading-relaxed"
           >
-            A visual diary of mindful movements, joyful tail wags, and cozy puppy cuddles
+            A visual diary of mindful movements, joyful tail wags, and cozy paw cuddles
             captured during our weekly restorative studio sessions.
           </motion.p>
 
