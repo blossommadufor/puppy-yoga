@@ -44,7 +44,7 @@ const Hero = () => {
           </p>
 
           <a href="#booking">
-            <Button className="mt-6">
+            <Button className="mt-6 " variant={"olive"}>
             Book a Session
           </Button>
           </a>
