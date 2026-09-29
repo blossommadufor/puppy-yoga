@@ -46,7 +46,7 @@ const FaqSection = () => {
               href="mailto:hello@pawsandyoga.com"
               className="text-[#BFAF9B] underline hover:text-[#FAF6F0] transition-colors"
             >
-              hello@pawsandyoga.com
+              pawsandyogabj@gmail.com
             </a>
           </p>
         </div>

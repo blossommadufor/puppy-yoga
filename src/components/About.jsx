@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import mainImg from "../assets/cheers.jpeg";
-import overlayImg from "../assets/solo3.jpg";
+import overlayImg from "../assets/solo5.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendar, faClock, faMugHot, faPaw, faSpa } from "@fortawesome/free-solid-svg-icons";
 

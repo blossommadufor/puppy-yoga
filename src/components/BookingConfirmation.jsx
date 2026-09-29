@@ -88,7 +88,7 @@ Hi! I'd like to complete my payment for this booking.`;
         className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-white py-3.5 px-6 rounded-xl font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 mb-3 cursor-pointer"
       >
         <FontAwesomeIcon icon={faWhatsapp} className="text-xl" />
-        Send Receipt & Pay on WhatsApp
+        Click To Pay On WhatsApp
       </button>
 
       <button

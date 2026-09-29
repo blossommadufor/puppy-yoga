@@ -5,7 +5,7 @@ import React from "react";
 import Button from "./Button";
 import mainHeroImg from "../assets/solo1.jpeg"; 
 import topRightImg from "../assets/solo2.jpg"; 
-import bottomRightImg from "../assets/hero2.jpg"; 
+import bottomRightImg from "../assets/gallery10.jpg"; 
 import heroBg from "../assets/bg3.jpg"; 
 
 const Hero = () => {
