@@ -4,6 +4,8 @@ import './App.css';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
 import GalleryPage from './pages/GalleryPage';
+import ImpactPage from './pages/ImpactPage';
+import ContactPage from './pages/ContactPage';
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation();
@@ -11,10 +13,13 @@ function ScrollToTop() {
   useEffect(() => {
     if (hash) {
       const id = hash.replace('#', '');
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      const timer = setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 60);
+      return () => clearTimeout(timer);
     } else {
       window.scrollTo(0, 0);
     }
@@ -31,6 +36,8 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/gallery" element={<GalleryPage />} />
+          <Route path="/impact" element={<ImpactPage />} />
+          <Route path="/contact" element={<ContactPage />} />
         </Route>
       </Routes>
     </div>
@@ -38,3 +45,4 @@ function App() {
 }
 
 export default App;
+

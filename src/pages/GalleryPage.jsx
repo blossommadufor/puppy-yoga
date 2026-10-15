@@ -13,6 +13,12 @@ import Footer from "../components/Footer";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
 
+// Top featured solo photos
+import solo4 from "../assets/solo4.jpeg";
+import solo5 from "../assets/solo5.jpg";
+import solo2 from "../assets/solo2.jpg";
+import solo1 from "../assets/solo1.jpeg";
+
 // All 15 studio gallery images
 import gallery2 from "../assets/gallery2.jpg";
 import gallery3 from "../assets/gallery3.jpg";
@@ -30,6 +36,10 @@ import gallery14 from "../assets/gallery14.jpg";
 import gallery15 from "../assets/gallery15.jpeg";
 
 const GALLERY_IMAGES = [
+  { id: "s4", src: solo4, alt: "Puppy Yoga Abuja moment - solo 4" },
+  { id: "s5", src: solo5, alt: "Puppy Yoga Abuja moment - solo 5" },
+  { id: "s2", src: solo2, alt: "Puppy Yoga Abuja moment - solo 2" },
+  { id: "s1", src: solo1, alt: "Puppy Yoga Abuja moment - solo 1" },
   { id: 2, src: gallery2, alt: "Puppy Yoga moment 2" },
   { id: 3, src: gallery3, alt: "Puppy Yoga moment 3" },
   { id: 4, src: gallery4, alt: "Puppy Yoga moment 4" },

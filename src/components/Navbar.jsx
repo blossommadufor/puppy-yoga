@@ -57,11 +57,20 @@ const Navbar = () => {
             </li>
             <li>
               <Link
-                to="/#faq"
+                to="/#membership"
                 onClick={() => setIsOpen(false)}
                 className="hover:text-[#BFAF9B] transition-colors"
               >
-                FAQ
+                MEMBERSHIP
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/impact"
+                onClick={() => setIsOpen(false)}
+                className="hover:text-[#BFAF9B] transition-colors"
+              >
+                OUR IMPACT
               </Link>
             </li>
             <li>
@@ -70,7 +79,25 @@ const Navbar = () => {
                 onClick={() => setIsOpen(false)}
                 className="hover:text-[#BFAF9B] transition-colors"
               >
-                Gallery
+                GALLERY
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/contact"
+                onClick={() => setIsOpen(false)}
+                className="hover:text-[#BFAF9B] transition-colors"
+              >
+                CONTACT
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/#faq"
+                onClick={() => setIsOpen(false)}
+                className="hover:text-[#BFAF9B] transition-colors"
+              >
+                FAQ
               </Link>
             </li>
           </ul>
