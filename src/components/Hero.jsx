@@ -43,11 +43,18 @@ const Hero = () => {
             puppies and kittens.
           </p>
 
-          <a href="#booking">
-            <Button className="mt-6 " variant={"olive"}>
-            Book a Session
-          </Button>
-          </a>
+          <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4">
+            <a href="#booking">
+              <Button variant="olive">
+                Book a Session
+              </Button>
+            </a>
+            <a href="#membership">
+              <Button variant="soft">
+                Find your paw plan
+              </Button>
+            </a>
+          </div>
         </motion.div>
 
         <motion.div 

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPaw,
@@ -15,12 +15,6 @@ import {
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 const WHATSAPP_BASE = "https://wa.me/message/XVUM4TSF7MFXD1";
-
-const COMMITMENT_OPTIONS = [
-  { id: "flexible", label: "Flexible", discount: 0, note: "Billed monthly, cancel anytime" },
-  { id: "3month", label: "3 Month", discount: 0.05, note: "Save an extra 5% with 3-month commitment" },
-  { id: "6month", label: "6 Month", discount: 0.1, note: "Save an extra 10% with 6-month commitment" },
-];
 
 const MEMBERSHIP_PLANS = [
   {
@@ -108,27 +102,9 @@ const MEMBERSHIP_PLANS = [
 ];
 
 const MembershipSection = () => {
-  const [selectedCommitment, setSelectedCommitment] = useState("flexible");
-
-  const currentOption =
-    COMMITMENT_OPTIONS.find((opt) => opt.id === selectedCommitment) ||
-    COMMITMENT_OPTIONS[0];
-
-  const calculatePrice = (basePrice) => {
-    const discounted = basePrice * (1 - currentOption.discount);
-    return Math.round(discounted).toLocaleString();
-  };
-
   const getWhatsAppLink = (plan) => {
-    const commitmentText =
-      selectedCommitment === "flexible"
-        ? "Flexible Monthly"
-        : selectedCommitment === "3month"
-        ? "3-Month Commitment"
-        : "6-Month Commitment";
-
-    const priceText = `₦${calculatePrice(plan.basePrice)}/month`;
-    const message = `Hi Paws & Yoga! 🐾 I would like to sign up for the *${plan.name}* membership (${commitmentText} at ${priceText}). Please guide me through onboarding!`;
+    const priceText = `₦${plan.basePrice.toLocaleString()}/month`;
+    const message = `Hi Paws & Yoga! 🐾 I would like to sign up for the *${plan.name}* membership (${priceText}). Please guide me through onboarding!`;
     return `${WHATSAPP_BASE}?text=${encodeURIComponent(message)}`;
   };
 
@@ -186,51 +162,17 @@ const MembershipSection = () => {
             Monthly classes. Better value. Consistent dopamine &amp; gentle cuddles with our playful puppies and kittens. Built to bring you back.
           </motion.p>
 
-          {/* Commitment Duration Selector */}
+          {/* Flat Monthly Subscription Badge */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.25 }}
-            className="mt-8 inline-flex items-center p-1.5 rounded-full bg-stone-200/60 border border-[#BFAF9B]/40 shadow-inner"
+            className="mt-8 inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white border border-[#BFAF9B]/50 shadow-xs text-xs sm:text-sm font-semibold text-[#5C6D53]"
           >
-            {COMMITMENT_OPTIONS.map((opt) => {
-              const isSelected = selectedCommitment === opt.id;
-              return (
-                <button
-                  key={opt.id}
-                  onClick={() => setSelectedCommitment(opt.id)}
-                  className={`relative px-5 sm:px-7 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
-                    isSelected
-                      ? "text-white shadow-sm"
-                      : "text-[#6B5E55] hover:text-[#2C2C2C]"
-                  }`}
-                >
-                  {isSelected && (
-                    <motion.div
-                      layoutId="commitmentActivePill"
-                      className="absolute inset-0 bg-[#7C8D73] rounded-full"
-                      transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                    />
-                  )}
-                  <span className="relative z-10 flex items-center gap-1.5">
-                    {opt.label}
-                    {opt.discount > 0 && (
-                      <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-bold ${
-                        isSelected ? "bg-white/25 text-white" : "bg-[#C98F73] text-white"
-                      }`}>
-                        -{opt.discount * 100}%
-                      </span>
-                    )}
-                  </span>
-                </button>
-              );
-            })}
+            <FontAwesomeIcon icon={faShieldHeart} className="text-[#7C8D73]" />
+            <span>Monthly Subscription · Cancel Anytime</span>
           </motion.div>
-
-          <p className="text-xs text-[#8C7A6B] mt-2.5 font-medium">
-            {currentOption.note}
-          </p>
         </div>
 
         {/* 3 Membership Cards Grid */}
@@ -295,7 +237,7 @@ const MembershipSection = () => {
                   <div className="pb-6 border-b border-[#FAF6F0] mb-6">
                     <div className="flex items-baseline gap-1">
                       <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#2C2C2C] tracking-tight">
-                        ₦{calculatePrice(plan.basePrice)}
+                        ₦{plan.basePrice.toLocaleString()}
                       </span>
                       <span className="text-xs sm:text-sm font-semibold text-[#8C7A6B]">
                         /month
