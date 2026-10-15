@@ -20,7 +20,7 @@ const Navbar = () => {
         <Link
           to="/impact"
           onClick={() => setIsOpen(false)}
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold tracking-wide uppercase text-white bg-[#C98F73] hover:bg-[#b87d60] active:scale-95 rounded-full shadow-sm transition-all duration-200"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-semibold tracking-wide uppercase text-olive bg-white active:scale-95 rounded-full shadow-sm transition-all duration-200"
         >
           <FontAwesomeIcon icon={faPaw} className="text-xs" />
           <span>Our Impact</span>

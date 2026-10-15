@@ -19,7 +19,6 @@ const WHATSAPP_BASE = "https://wa.me/message/XVUM4TSF7MFXD1";
 const MEMBERSHIP_PLANS = [
   {
     id: "paw-pass",
-    num: "01",
     name: "PAW PASS",
     theme: "warm",
     primaryColor: "#BFAF9B",
@@ -45,7 +44,6 @@ const MEMBERSHIP_PLANS = [
   },
   {
     id: "paw-bestie",
-    num: "02",
     name: "PAW BESTIE",
     isPopular: true,
     theme: "olive",
@@ -72,7 +70,6 @@ const MEMBERSHIP_PLANS = [
   },
   {
     id: "paw-og",
-    num: "03",
     name: "PAW OG",
     theme: "soft",
     primaryColor: "#C98F73",
@@ -212,7 +209,7 @@ const MembershipSection = () => {
                   {/* Card Header: Tier number & Custom Paw Logo icon */}
                   <div className="flex items-center justify-between mb-4">
                     <span className={`text-xs font-black tracking-wider uppercase px-3 py-1 rounded-full ${plan.badgeBg}`}>
-                      {plan.num} — {plan.name}
+                       {plan.name}
                     </span>
 
                     {/* Dedicated Paw Icon with the Card's Brand Color */}
@@ -236,7 +233,7 @@ const MembershipSection = () => {
                   {/* Price Block */}
                   <div className="pb-6 border-b border-[#FAF6F0] mb-6">
                     <div className="flex items-baseline gap-1">
-                      <span className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#2C2C2C] tracking-tight">
+                      <span className="text-3xl sm:text-4xl lg:text-5xl text-[#2C2C2C] tracking-tight">
                         ₦{plan.basePrice.toLocaleString()}
                       </span>
                       <span className="text-xs sm:text-sm font-semibold text-[#8C7A6B]">
@@ -319,7 +316,7 @@ const MembershipSection = () => {
               <FontAwesomeIcon icon={faPaw} />
             </div>
             <div>
-              <p className="text-xs sm:text-sm font-bold text-[#2C2C2C]">All Paws &amp; Kittens Included</p>
+              <p className="text-xs sm:text-sm text-[#2C2C2C]">All Paws &amp; Kittens Included</p>
               <p className="text-[11px] text-[#6B5E55]">Supervised socialization during every flow</p>
             </div>
           </div>
@@ -329,7 +326,7 @@ const MembershipSection = () => {
               <FontAwesomeIcon icon={faCalendarCheck} />
             </div>
             <div>
-              <p className="text-xs sm:text-sm font-bold text-[#2C2C2C]">Priority Booking Window</p>
+              <p className="text-xs sm:text-sm text-[#2C2C2C]">Priority Booking Window</p>
               <p className="text-[11px] text-[#6B5E55]">Reserve your spot before public slots drop</p>
             </div>
           </div>
@@ -339,7 +336,7 @@ const MembershipSection = () => {
               <FontAwesomeIcon icon={faShieldHeart} />
             </div>
             <div>
-              <p className="text-xs sm:text-sm font-bold text-[#2C2C2C]">Flexible &amp; Friendly</p>
+              <p className="text-xs sm:text-sm text-[#2C2C2C]">Flexible &amp; Friendly</p>
               <p className="text-[11px] text-[#6B5E55]">Pause or switch plans whenever you need</p>
             </div>
           </div>

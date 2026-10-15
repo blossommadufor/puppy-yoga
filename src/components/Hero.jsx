@@ -30,7 +30,7 @@ const Hero = () => {
           <motion.span
             className="bg-gray-200 py-1 px-3 rounded-lg text-xs md:text-sm text-gray-700 inline-flex items-center"
           >
-            <FontAwesomeIcon icon={faHeart} className="text-soft mr-2" />
+            <FontAwesomeIcon icon={faHeart} className="text-soft mr-2 " />
             Paws and Yoga Experience
           </motion.span>
           <h2 className="mt-4 sm:mt-6 text-4xl sm:text-5xl lg:text-7xl font-bold text-gray-800 leading-tight">
