@@ -9,10 +9,11 @@ import {
   faShieldCat,
   faArrowRight,
   faQuoteLeft,
+  faStar,
 } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../components/Footer";
 
-// Best suited studio photos for article insets
+// Best suited photos from studio assets
 import pupsImg from "../assets/pups.jpeg";
 import shelterPupImg from "../assets/solo3.jpg";
 import connectionImg from "../assets/gallery14.jpg";
