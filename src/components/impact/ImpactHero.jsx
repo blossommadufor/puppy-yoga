@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaw } from "@fortawesome/free-solid-svg-icons";
-import heroBgImg from "../../assets/impact 3.png";
+import heroBgImg from "../../assets/impact 3.PNG";
 
 const ImpactHero = () => {
   return (
@@ -12,7 +12,7 @@ const ImpactHero = () => {
         <img
           src={heroBgImg}
           alt="Paws and Yoga impact cuddle moment"
-          className="w-full h-full object-cover object-center filter blur-[px] scale-105 transform"
+          className="w-full h-full object-cover object-center filter blur-[3px] scale-105 transform"
         />
         {/* Rich Olive/Forest Translucent Gradient Overlay for High Text Readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#212A1E]/85 via-[#3B4934]/82 to-[#1E261A]/92 backdrop-blur-2xs" />

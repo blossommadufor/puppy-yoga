@@ -13,6 +13,7 @@ import impact6Video from "../../assets/impact6.MOV";
 
 const ImpactPhotoShowcase = () => {
   const [isMuted, setIsMuted] = useState(true);
+  const [videoError, setVideoError] = useState(false);
   const videoRef = useRef(null);
 
   const toggleSound = (e) => {
@@ -47,15 +48,25 @@ const ImpactPhotoShowcase = () => {
         transition={{ duration: 0.3 }}
         className="rounded-3xl overflow-hidden shadow-lg border border-[#FAF6F0] bg-black h-72 sm:h-80 relative group select-none"
       >
-        <video
-          ref={videoRef}
-          src={impact6Video}
-          autoPlay
-          loop
-          muted={isMuted}
-          playsInline
-          className="w-full h-full object-cover"
-        />
+        {!videoError ? (
+          <video
+            ref={videoRef}
+            src={impact6Video}
+            autoPlay
+            loop
+            muted={isMuted}
+            playsInline
+            poster={impact2Img}
+            onError={() => setVideoError(true)}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <img
+            src={impact2Img}
+            alt="Active puppy yoga connection"
+            className="w-full h-full object-cover"
+          />
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/25 pointer-events-none" />
 
         {/* Live Video Indicator Badge */}

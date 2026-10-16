@@ -14,6 +14,7 @@ import impact5Video from "../../assets/impact5.MOV";
 
 const ImpactShelterSection = () => {
   const [isMuted, setIsMuted] = useState(true);
+  const [videoError, setVideoError] = useState(false);
   const videoRef = useRef(null);
 
   const toggleSound = (e) => {
@@ -108,15 +109,25 @@ const ImpactShelterSection = () => {
 
           {/* Squircle Secondary Video Player (impact5.MOV) */}
           <div className="rounded-2xl rounded-br-[45px] overflow-hidden shadow-md border border-[#FAF6F0] h-56 sm:h-64 relative group select-none bg-black">
-            <video
-              ref={videoRef}
-              src={impact5Video}
-              autoPlay
-              loop
-              muted={isMuted}
-              playsInline
-              className="w-full h-full object-cover"
-            />
+            {!videoError ? (
+              <video
+                ref={videoRef}
+                src={impact5Video}
+                autoPlay
+                loop
+                muted={isMuted}
+                playsInline
+                poster={impact1Img}
+                onError={() => setVideoError(true)}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <img
+                src={impact1Img}
+                alt="Puppy Yoga studio flow"
+                className="w-full h-full object-cover"
+              />
+            )}
             {/* Ambient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/20 pointer-events-none" />
 
