@@ -29,10 +29,10 @@ const ImpactHero = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="relative z-10 max-w-4xl mx-auto space-y-6"
       >
-        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-white/20 text-[#FAF6F0] backdrop-blur-md border border-white/25 shadow-sm">
+        {/* <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest bg-white/20 text-[#FAF6F0] backdrop-blur-md border border-white/25 shadow-sm">
           <FontAwesomeIcon icon={faPaw} className="text-[#BFAF9B]" />
           Animal Welfare &amp; Community Outreach · Abuja, Nigeria
-        </span>
+        </span> */}
 
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight leading-tight drop-shadow-sm">
           Our <span className="font-serif italic text-[#FAF6F0]">Impact</span>
@@ -44,11 +44,11 @@ const ImpactHero = () => {
           and positive socialization.
         </p>
 
-        <div className="pt-2 flex items-center justify-center gap-2 text-xs uppercase tracking-widest text-white/80 font-bold">
+        {/* <div className="pt-2 flex items-center justify-center gap-2 text-xs uppercase tracking-widest text-white/80 font-bold">
           <span>Don Smart Kennel Partner</span>
           <span>•</span>
           <span>Abuja, Nigeria</span>
-        </div>
+        </div> */}
       </motion.div>
     </section>
   );

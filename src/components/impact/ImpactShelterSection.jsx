@@ -1,16 +1,29 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShieldCat,
   faHeart,
   faStar,
+  faVolumeHigh,
+  faVolumeXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
-import shelterPupImg from "../../assets/solo3.jpg";
-import solo2Img from "../../assets/solo2.jpg";
+import impact1Img from "../../assets/impact1.jpg";
+import impact5Video from "../../assets/impact5.MOV";
 
 const ImpactShelterSection = () => {
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef(null);
+
+  const toggleSound = (e) => {
+    e.stopPropagation();
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
+
   return (
     <div className="space-y-6 pt-4">
       {/* Partnership Headline */}
@@ -49,9 +62,9 @@ const ImpactShelterSection = () => {
         </div>
       </div>
 
-      {/* Dynamic Visual Cards: Arched Photo Floating Animation + Squircle Companion */}
+      {/* Dynamic Visual Media: Arched Photo Card (impact1) + Squircle Video Card (impact5) */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-6 my-10 items-center">
-        {/* Arched Photo with Floating Animation */}
+        {/* Arched Photo with Floating Animation (impact1.jpg) */}
         <motion.div
           animate={{ y: [0, -6, 0] }}
           transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
@@ -59,18 +72,21 @@ const ImpactShelterSection = () => {
         >
           <div className="relative rounded-t-[70px] rounded-b-3xl overflow-hidden shadow-lg border-2 border-[#7C8D73]/25 bg-white">
             <img
-              src={shelterPupImg}
-              alt="A shelter puppy exploring during yoga"
+              src={impact1Img}
+              alt="Shelter puppy bonding during yoga session"
               className="w-full h-80 sm:h-96 object-cover object-center transform hover:scale-105 transition-transform duration-500"
             />
             <div className="absolute top-4 right-4 bg-[#7C8D73] text-white px-3 py-1 rounded-full text-xs font-bold shadow-md flex items-center gap-1.5">
               <FontAwesomeIcon icon={faHeart} className="text-amber-200 text-[10px]" />
               Shelter Rescue
             </div>
+            <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-xs text-white px-3 py-1 rounded-xl text-xs font-medium">
+              Loving Socialization on the Mat
+            </div>
           </div>
         </motion.div>
 
-        {/* Dynamic Companion Card with Asymmetric Border */}
+        {/* Dynamic Companion Card + Squircle Live Video (impact5.MOV) */}
         <div className="md:col-span-6 space-y-4">
           <div className="rounded-tl-[40px] rounded-br-[40px] rounded-tr-2xl rounded-bl-2xl p-6 sm:p-8 bg-white border border-[#E8DFD5] shadow-md relative overflow-hidden">
             <div className="w-10 h-10 rounded-2xl bg-[#C98F73]/15 text-[#C98F73] flex items-center justify-center text-base mb-3">
@@ -90,15 +106,44 @@ const ImpactShelterSection = () => {
             </div>
           </div>
 
-          {/* Squircle Secondary Photo */}
-          <div className="rounded-2xl rounded-br-[45px] overflow-hidden shadow-md border border-[#FAF6F0] h-48 sm:h-56 relative group">
-            <img
-              src={solo2Img}
-              alt="Playful interaction during puppy yoga session"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          {/* Squircle Secondary Video Player (impact5.MOV) */}
+          <div className="rounded-2xl rounded-br-[45px] overflow-hidden shadow-md border border-[#FAF6F0] h-56 sm:h-64 relative group select-none bg-black">
+            <video
+              ref={videoRef}
+              src={impact5Video}
+              autoPlay
+              loop
+              muted={isMuted}
+              playsInline
+              className="w-full h-full object-cover"
             />
-            <div className="absolute bottom-2 left-3 bg-black/60 backdrop-blur-xs text-white px-3 py-1 rounded-xl text-xs font-medium">
-              Joyful Playtime in Abuja
+            {/* Ambient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/20 pointer-events-none" />
+
+            {/* Live Indicator Badge */}
+            <div className="absolute top-3 left-3 z-10 pointer-events-none">
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-black/50 text-white backdrop-blur-xs border border-white/20">
+                <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-pulse" />
+                Live Studio Session
+              </span>
+            </div>
+
+            {/* Mute / Unmute Button */}
+            <button
+              type="button"
+              onClick={toggleSound}
+              className="absolute top-3 right-3 z-20 w-8 h-8 rounded-full bg-black/50 hover:bg-black/75 text-white flex items-center justify-center text-xs backdrop-blur-xs transition cursor-pointer"
+              aria-label={isMuted ? "Unmute video" : "Mute video"}
+              title={isMuted ? "Click to unmute" : "Click to mute"}
+            >
+              <FontAwesomeIcon icon={isMuted ? faVolumeXmark : faVolumeHigh} />
+            </button>
+
+            {/* Bottom Caption */}
+            <div className="absolute bottom-3 left-3 right-3 z-10 pointer-events-none">
+              <p className="text-white text-xs font-bold drop-shadow-xs">
+                Playful Interaction &amp; Social Development · Abuja
+              </p>
             </div>
           </div>
         </div>
